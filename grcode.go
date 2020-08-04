@@ -30,8 +30,8 @@ func init() {
 	flag.StringVar(&outFlag, "out", "", outUsage)
 	flag.StringVar(&outFlag, "o", "", outUsage+" (shorthand)")
 
-	flag.StringVar(&logoFlag, "logo", "", outUsage)
-	flag.StringVar(&logoFlag, "l", "", outUsage+" (shorthand)")
+	flag.StringVar(&logoFlag, "logo", "", logoUsage)
+	flag.StringVar(&logoFlag, "l", "", logoUsage+" (shorthand)")
 }
 
 func usage() {
