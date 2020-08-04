@@ -13,7 +13,7 @@ import (
 
 // CreateQRCode creates a QR Code.
 func CreateQRCode(text string, out string, logo string) error {
-	q, err := qrcode.New(text, qrcode.Medium)
+	q, err := qrcode.New(text, qrcode.Highest)
 	if err != nil {
 		return errors.Wrap(err, "QR Code creation failed")
 	}
