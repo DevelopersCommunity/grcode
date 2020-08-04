@@ -17,8 +17,8 @@ func init() {
 	const (
 		helpUsage = "show this help message and exit"
 		textUsage = "text to embed in QR Code"
-		outUsage  = "QR Code output file"
-		logoUsage = "logo to be included in QR Code"
+		outUsage  = "QR Code output file (PNG)"
+		logoUsage = "logo to be included in QR Code (PNG)"
 	)
 
 	flag.BoolVar(&helpFlag, "help", false, helpUsage)
