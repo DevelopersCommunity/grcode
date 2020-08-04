@@ -4,20 +4,21 @@ import (
 	"flag"
 	"os"
 
+	"github.com/DevelopersCommunity/grcode/qr"
 	"github.com/golang/glog"
-	"github.com/pkg/errors"
-	"github.com/skip2/go-qrcode"
 )
 
 var helpFlag bool
 var textFlag string
 var outFlag string
+var logoFlag string
 
 func init() {
 	const (
 		helpUsage = "show this help message and exit"
 		textUsage = "text to embed in QR Code"
 		outUsage  = "QR Code output file"
+		logoUsage = "logo to be included in QR Code"
 	)
 
 	flag.BoolVar(&helpFlag, "help", false, helpUsage)
@@ -28,17 +29,14 @@ func init() {
 
 	flag.StringVar(&outFlag, "out", "", outUsage)
 	flag.StringVar(&outFlag, "o", "", outUsage+" (shorthand)")
+
+	flag.StringVar(&logoFlag, "logo", "", outUsage)
+	flag.StringVar(&logoFlag, "l", "", outUsage+" (shorthand)")
 }
 
 func usage() {
 	flag.CommandLine.SetOutput(os.Stdout)
 	flag.Usage()
-}
-
-func createQrCode() error {
-	err := qrcode.WriteFile(textFlag, qrcode.Medium, 256, outFlag)
-
-	return errors.Wrap(err, "QR Code write file failed")
 }
 
 func main() {
@@ -50,7 +48,7 @@ func main() {
 		return
 	}
 
-	err := createQrCode()
+	err := qr.CreateQRCode(textFlag, outFlag, logoFlag)
 
 	if err != nil {
 		glog.Errorf("%+v", err)

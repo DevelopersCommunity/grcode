@@ -14,6 +14,7 @@
             "args": [
                 "-t=https://github.com/DevelopersCommunity",
                 "-o=C:/temp/dc.png",
+                "-l=C:/Users/ateoi/Pictures/avatar.png",
                 "-logtostderr",
             ]
         }
